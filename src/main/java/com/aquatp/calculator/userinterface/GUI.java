@@ -7,16 +7,14 @@ import javafx.util.converter.NumberStringConverter;
 
 
 public class GUI {
-    private NumberStringConverter numberStringConverter;
-    private Label label;
-    private Calculator operations;
+    private Calculator calc;
     private StringBuilder sb;
     private boolean isFirstValue = true;
+    private double val1, val2;
 
 
     public void create() {
-        operations = new Calculator();
-        numberStringConverter = new NumberStringConverter();
+        calc = new Calculator();
         sb = new StringBuilder();
     }
 
@@ -29,6 +27,8 @@ public class GUI {
         display();
     }
 
+    // clean the screen
+
     public void clear() {
         sb.delete(0,sb.length());
         sb.append("0");
@@ -39,14 +39,33 @@ public class GUI {
         System.out.println(sb.toString());
     }
 
-    public void sendToOperations() {
-        operations.setCurrentVal(Double.parseDouble(sb.toString()));
-        System.out.println(operations.getCurrentVal());
+    //invoke operations
+
+    public void add() {
+        calc.sum(val1, val2);
     }
 
-    public StringBuilder getStringBuilder() {
-        return sb;
+    public void subtract() {
+        calc.subtract(val1, val2);
     }
+
+    public void divide() {
+        calc.divide(val1, val2);
+    }
+
+    public void multiply() {
+        calc.multiply(val1, val2);
+    }
+
+    public void sqrt() {
+        calc.squareRoot(val1);
+    }
+
+    public double convertToNumber() {
+        return Double.parseDouble(sb.toString());
+    }
+
+    // value selectors
 
     public void toFirstValue() {
         isFirstValue = true;
@@ -55,4 +74,13 @@ public class GUI {
     public void toSecondValue() {
         isFirstValue = false;
     }
+
+    // getters and setters
+
+    public StringBuilder getStringBuilder() {
+        return sb;
+    }
+
+
+
 }

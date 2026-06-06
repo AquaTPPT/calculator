@@ -18,8 +18,6 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("UI.fxml"));
         Scene scene = new Scene(root);
 
-        Text text = new Text("0");
-
         scene.getStylesheets().add("");
         Image icon = new Image("favicon.png");
         stage.getIcons().add(icon);
@@ -28,6 +26,7 @@ public class Main extends Application {
 
 
         new ButtonHandler();
+
         stage.setScene(scene);
         stage.show();
     }

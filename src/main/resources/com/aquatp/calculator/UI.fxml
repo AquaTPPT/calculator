@@ -88,6 +88,6 @@
          </children>
       </GridPane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3f3f3" height="42.0" layoutX="21.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" width="399.0" />
-      <Label fx:id="label" layoutX="399.0" layoutY="31.0" text="0" />
+      <Label fx:id="label" style="-fx-text-alignment: right;" layoutX="399.0" layoutY="31.0" text="0" />
    </children>
 </AnchorPane>
