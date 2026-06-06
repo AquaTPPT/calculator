@@ -20,6 +20,8 @@ public class Operations {
         return currentVal *= val1;
     }
 
+    public double squareRoot() { return Math.sqrt(currentVal); }
+
     //getters and setters
 
     public double getCurrentVal() {
