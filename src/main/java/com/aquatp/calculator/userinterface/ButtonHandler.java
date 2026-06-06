@@ -1,10 +1,13 @@
-package com.aquatp.calculator;
+package com.aquatp.calculator.userinterface;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 public class ButtonHandler {
     private GUI gui;
+    private Label label;
+
 
     public ButtonHandler() {
         gui = new GUI();
@@ -54,10 +57,16 @@ public class ButtonHandler {
     }
 
     public void clear(ActionEvent e) {
-        System.out.println("cleared");
+        gui.clear();
+    }
+
+    public void equal(ActionEvent e) {
+
     }
 
     public void ce(ActionEvent e) {
         System.out.println("Cleared everything");
     }
+
+
 }

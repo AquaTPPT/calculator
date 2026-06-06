@@ -1,5 +1,6 @@
 package com.aquatp.calculator;
 
+import com.aquatp.calculator.userinterface.ButtonHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // To create a new Stage: Stage stage1 = new Stage();
