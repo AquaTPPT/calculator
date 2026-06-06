@@ -1,19 +1,33 @@
 package com.aquatp.calculator;
 
-import javafx.scene.text.Text;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.util.converter.NumberStringConverter;
+
+
 
 public class GUI {
     private NumberStringConverter numberStringConverter;
-    private Text text;
+    private Label numbers;
     private Operations operations;
-    private StringBuilder stringBuilder;
+    private StringBuilder sb;
 
 
     public void create() {
-        text = new Text();
+        operations = new Operations();
+        numbers = new Label();
         numberStringConverter = new NumberStringConverter();
+        sb = new StringBuilder();
     }
 
+    public void addWholeNumberToText(String val) {
+        sb.append(val);
+        display();
+    }
+
+    public void display() {
+        System.out.println(sb.toString());
+    }
 
 }

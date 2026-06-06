@@ -19,12 +19,14 @@ public class HelloApplication extends Application {
 
         Text text = new Text("0");
 
-
+        scene.getStylesheets().add("");
         Image icon = new Image("favicon.png");
         stage.getIcons().add(icon);
         stage.setTitle("Calculator");
         stage.setResizable(false);
 
+
+        new ButtonHandler();
         stage.setScene(scene);
         stage.show();
     }
