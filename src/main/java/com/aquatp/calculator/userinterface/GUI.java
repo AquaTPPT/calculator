@@ -10,7 +10,7 @@ public class GUI {
     private Calculator calc;
     private StringBuilder sb;
     private boolean isFirstValue = true;
-    private double val1, val2;
+    private double val1, val2, result;
 
 
     public void create() {
@@ -42,23 +42,34 @@ public class GUI {
     //invoke operations
 
     public void add() {
-        calc.sum(val1, val2);
+        result = calc.sum(val1, val2);
+        showResult();
     }
 
     public void subtract() {
-        calc.subtract(val1, val2);
+        result = calc.subtract(val1, val2);
+        showResult();
     }
 
     public void divide() {
-        calc.divide(val1, val2);
+        result =  calc.divide(val1, val2);
+        showResult();
     }
 
     public void multiply() {
-        calc.multiply(val1, val2);
+        result = calc.multiply(val1, val2);
+        showResult();
     }
 
     public void sqrt() {
-        calc.squareRoot(val1);
+        result = calc.squareRoot(val1);
+        showResult();
+    }
+
+    public void showResult() {
+        clear();
+        sb.append(result);
+        display();
     }
 
     public double convertToNumber() {
@@ -81,6 +92,14 @@ public class GUI {
         return sb;
     }
 
+    public void setVal1() {
+        val1 = convertToNumber();
+        System.out.println(val1);
+    }
 
+    public void setVal2() {
+        val2 = convertToNumber();
+        System.out.println(val2);
+    }
 
 }

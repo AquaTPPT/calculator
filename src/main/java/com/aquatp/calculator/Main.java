@@ -18,24 +18,14 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("UI.fxml"));
         Scene scene = new Scene(root);
 
-        scene.getStylesheets().add("");
         Image icon = new Image("favicon.png");
         stage.getIcons().add(icon);
         stage.setTitle("Calculator");
         stage.setResizable(false);
 
-
         new ButtonHandler();
 
         stage.setScene(scene);
         stage.show();
-    }
-
-    public void create() {
-
-    }
-
-    public void setNumber(double val) {
-
     }
 }
