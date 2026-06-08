@@ -97,7 +97,7 @@ public class GUI {
     }
 
     public void setVal1() {
-        if (sb.toString().contains(".")) {
+        if (numberChecker()) {
             String[] splitNum = sb.toString().split(".");
             if (Integer.parseInt(splitNum[1]) > 0) {
                 val1 = convertToDouble();
@@ -113,7 +113,7 @@ public class GUI {
     }
 
     public void setVal2() {
-        if (sb.toString().contains(".")) {
+        if (numberChecker()) {
             String[] splitNum = sb.toString().split(".");
             if (Integer.parseInt(splitNum[1]) > 0) {
                 val2 = convertToDouble();
@@ -128,9 +128,22 @@ public class GUI {
     }
 
     public boolean numberChecker() {
-        return sb.toString().contains(".");
+
+        boolean check = sb.toString().contains(".");
+        System.out.println(check);
+        return check;
     }
 
+    public void cleanStringBuilder() {
+        if (numberChecker()) {
+            String[] splitNum = sb.toString().split("[.]");
+            if (Integer.parseInt(splitNum[1]) == 0) {
+                sb.delete(sb.indexOf("."), sb.length());
+            }
+        }
+    }
+
+    // Clear everything
 
     public void clean() {
         val1 = 0;
