@@ -5,5 +5,6 @@ public enum Operations {
     MINUS,
     MULTIPLY,
     DIVIDE,
-    SQRT;
+    SQRT,
+    EQUALS // will be useful to track which operation has been made
 }

@@ -24,7 +24,6 @@ public class GUI {
         }
 
         sb.append(val);
-        displayConsole();
     }
 
     // clean the screen
@@ -32,12 +31,8 @@ public class GUI {
     public void clear() {
         sb.delete(0,sb.length());
         sb.append("0");
-        displayConsole();
     }
 
-    public void displayConsole() {
-        System.out.println(sb.toString());
-    }
 
     //invoke operations
 
@@ -69,15 +64,10 @@ public class GUI {
     public void showResult() {
         clear();
         sb.append(result);
-        displayConsole();
     }
 
-    public double convertToDouble() {
+    public double convertToNumber() {
         return Double.parseDouble(sb.toString());
-    }
-
-    public int convertToInt() {
-        return Integer.parseInt(sb.toString());
     }
 
     // value selectors
@@ -97,45 +87,21 @@ public class GUI {
     }
 
     public void setVal1() {
-        if (numberChecker()) {
-            String[] splitNum = sb.toString().split(".");
-            if (Integer.parseInt(splitNum[1]) > 0) {
-                val1 = convertToDouble();
-            } else {
-                val1 = convertToInt();
-            }
-        }
-
-        else {
-            val1 = convertToInt();
-        }
+        val1 = convertToNumber();
         System.out.println(val1);
     }
 
     public void setVal2() {
-        if (numberChecker()) {
-            String[] splitNum = sb.toString().split(".");
-            if (Integer.parseInt(splitNum[1]) > 0) {
-                val2 = convertToDouble();
-            } else {
-                val2 = convertToInt();
-            }
-        }
-        else {
-            val2 = convertToInt();
-        }
+        val2 = convertToNumber();
         System.out.println(val2);
     }
 
-    public boolean numberChecker() {
-
-        boolean check = sb.toString().contains(".");
-        System.out.println(check);
-        return check;
+    public void setResultToVal1() {
+        val1 = result;
     }
 
     public void cleanStringBuilder() {
-        if (numberChecker()) {
+        if (sb.toString().contains(".")) {
             String[] splitNum = sb.toString().split("[.]");
             if (Integer.parseInt(splitNum[1]) == 0) {
                 sb.delete(sb.indexOf("."), sb.length());
@@ -150,7 +116,6 @@ public class GUI {
         val2 = 0;
         result = 0;
         clear();
-        displayConsole();
     }
 
 }

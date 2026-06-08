@@ -7,7 +7,7 @@ import javafx.scene.control.TextArea;
 
 public class ButtonHandler {
 
-    private Operations operationType;
+    private Operations operationType, lastOperationPressed;
     private GUI gui;
 
     @FXML
@@ -75,48 +75,42 @@ public class ButtonHandler {
     // operation buttons
 
     public void equal(ActionEvent e) {
+        lastOperationPressed = Operations.EQUALS;
         gui.setVal2();
         operation();
         gui.toFirstValue();
         gui.clear();
     }
 
-
-
     public void plus(ActionEvent e) {
         operationType = Operations.PLUS;
-        System.out.println(operationType.toString());
-        gui.setVal1();
-        gui.clear();
-        gui.toSecondValue();
+        operationTypeChecker();
+        lastOperationPressed = Operations.PLUS;
     }
 
     public void minus(ActionEvent e) {
         operationType = Operations.MINUS;
-        System.out.println(operationType.toString());
-        gui.setVal1();
-        gui.clear();
-        gui.toSecondValue();
+        operationTypeChecker();
+        lastOperationPressed = Operations.MINUS;
     }
 
     public void divide(ActionEvent e) {
         operationType = Operations.DIVIDE;
-        System.out.println(operationType.toString());
-        gui.setVal1();
-        gui.clear();
-        gui.toSecondValue();
+        operationTypeChecker();
+        lastOperationPressed = Operations.DIVIDE;
     }
 
     public void multiply(ActionEvent e) {
         operationType = Operations.MULTIPLY;
-        System.out.println(operationType.toString());
-        gui.setVal1();
-        gui.clear();
-        gui.toSecondValue();
+        operationTypeChecker();
+        lastOperationPressed = Operations.MULTIPLY;
     }
+
+    // this is a specific case that needs to be addressed afterward.
 
     public void sqrt(ActionEvent e) {
         operationType = Operations.SQRT;
+        lastOperationPressed = Operations.SQRT;
         gui.setVal1();
         gui.clear();
         operation();
@@ -169,4 +163,17 @@ public class ButtonHandler {
         System.out.println("Cleared everything");
     }
 
+
+
+    public void operationTypeChecker() {
+        if (lastOperationPressed == Operations.EQUALS) {
+            System.out.println("last operation was an equal!");
+            gui.setResultToVal1();
+            gui.toSecondValue();
+        }
+        else {
+            gui.setVal1();
+        }
+        gui.clear();
+    }
 }
