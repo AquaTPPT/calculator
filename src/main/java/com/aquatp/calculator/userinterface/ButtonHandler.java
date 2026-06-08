@@ -128,7 +128,7 @@ public class ButtonHandler {
         gui.toSecondValue();
     }
 
-    public void divide (ActionEvent e) {
+    public void divide(ActionEvent e) {
         operationType = Operations.DIVIDE;
         System.out.println(operationType.toString());
         gui.setVal1();
@@ -144,10 +144,6 @@ public class ButtonHandler {
         gui.toSecondValue();
     }
 
-    public void display() {
-        ta.setText(gui.getStringBuilder().toString());
-    }
-
     public void sqrt(ActionEvent e) {
         operationType = Operations.SQRT;
         gui.setVal1();
@@ -155,7 +151,15 @@ public class ButtonHandler {
         operation();
     }
 
+    public void display() {
+        gui.numberChecker();
+        ta.setText(gui.getStringBuilder().toString());
+    }
+
+
     public void ce(ActionEvent e) {
+        gui.clean();
+        display();
         System.out.println("Cleared everything");
     }
 

@@ -24,7 +24,7 @@ public class GUI {
         }
 
         sb.append(val);
-        display();
+        displayConsole();
     }
 
     // clean the screen
@@ -32,10 +32,10 @@ public class GUI {
     public void clear() {
         sb.delete(0,sb.length());
         sb.append("0");
-        display();
+        displayConsole();
     }
 
-    public void display() {
+    public void displayConsole() {
         System.out.println(sb.toString());
     }
 
@@ -69,11 +69,15 @@ public class GUI {
     public void showResult() {
         clear();
         sb.append(result);
-        display();
+        displayConsole();
     }
 
-    public double convertToNumber() {
+    public double convertToDouble() {
         return Double.parseDouble(sb.toString());
+    }
+
+    public int convertToInt() {
+        return Integer.parseInt(sb.toString());
     }
 
     // value selectors
@@ -93,13 +97,47 @@ public class GUI {
     }
 
     public void setVal1() {
-        val1 = convertToNumber();
+        if (sb.toString().contains(".")) {
+            String[] splitNum = sb.toString().split(".");
+            if (Integer.parseInt(splitNum[1]) > 0) {
+                val1 = convertToDouble();
+            } else {
+                val1 = convertToInt();
+            }
+        }
+
+        else {
+            val1 = convertToInt();
+        }
         System.out.println(val1);
     }
 
     public void setVal2() {
-        val2 = convertToNumber();
+        if (sb.toString().contains(".")) {
+            String[] splitNum = sb.toString().split(".");
+            if (Integer.parseInt(splitNum[1]) > 0) {
+                val2 = convertToDouble();
+            } else {
+                val2 = convertToInt();
+            }
+        }
+        else {
+            val2 = convertToInt();
+        }
         System.out.println(val2);
+    }
+
+    public boolean numberChecker() {
+        return sb.toString().contains(".");
+    }
+
+
+    public void clean() {
+        val1 = 0;
+        val2 = 0;
+        result = 0;
+        clear();
+        displayConsole();
     }
 
 }
