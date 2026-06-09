@@ -7,7 +7,7 @@ import javafx.scene.control.TextArea;
 
 public class ButtonHandler {
 
-    private Operations operationType, lastOperationPressed;
+    private Operations operationType, lastOperationPressed, actionChecker;
     private GUI gui;
 
     @FXML
@@ -21,56 +21,69 @@ public class ButtonHandler {
     // Number buttons
 
     public void zero(ActionEvent e) {
-        gui.addWholeNumberToText("0");
+        gui.addToText("0");
         display();
+        actionChecker = Operations.NUMBER;
     }
 
     public void one(ActionEvent e) {
         gui.addWholeNumberToText("1");
         display();
+        actionChecker = Operations.NUMBER;
     }
 
     public void two(ActionEvent e) {
         gui.addWholeNumberToText("2");
         display();
+        actionChecker = Operations.NUMBER;
     }
 
     public void three(ActionEvent e) {
         gui.addWholeNumberToText("3");
         display();
+        actionChecker = Operations.NUMBER;
     }
 
     public void four(ActionEvent e) {
         gui.addWholeNumberToText("4");
         display();
+        actionChecker = Operations.NUMBER;
     }
 
     public void five(ActionEvent e) {
         gui.addWholeNumberToText("5");
         display();
+        actionChecker = Operations.NUMBER;
     }
 
     public void six(ActionEvent e) {
         gui.addWholeNumberToText("6");
         display();
+        actionChecker = Operations.NUMBER;
     }
 
     public void seven(ActionEvent e) {
         gui.addWholeNumberToText("7");
         display();
+        actionChecker = Operations.NUMBER;
     }
 
     public void eight(ActionEvent e) {
         gui.addWholeNumberToText("8");
         display();
+        actionChecker = Operations.NUMBER;
     }
 
     public void nine(ActionEvent e) {
         gui.addWholeNumberToText("9");
         display();
+        actionChecker = Operations.NUMBER;
     }
 
-
+    public void dot(ActionEvent e) {
+        gui.addToText(".");
+        display();
+    }
 
     // operation buttons
 
@@ -80,29 +93,58 @@ public class ButtonHandler {
         operation();
         gui.toFirstValue();
         gui.clear();
+        actionChecker = Operations.EQUALS;
     }
 
     public void plus(ActionEvent e) {
         operationType = Operations.PLUS;
-        operationTypeChecker();
+        if (actionChecker == Operations.NUMBER) {
+            gui.setVal1();
+        }
+        else if (actionChecker == Operations.EQUALS) {
+            gui.setResultToVal1();
+        }
+        gui.clear();
+        actionChecker = Operations.PLUS;
         lastOperationPressed = Operations.PLUS;
     }
 
     public void minus(ActionEvent e) {
         operationType = Operations.MINUS;
-        operationTypeChecker();
+        if (actionChecker == Operations.NUMBER) {
+            gui.setVal1();
+        }
+        else if (actionChecker == Operations.EQUALS) {
+            gui.setResultToVal1();
+        }
+        gui.clear();
+        actionChecker = Operations.MINUS;
         lastOperationPressed = Operations.MINUS;
     }
 
     public void divide(ActionEvent e) {
         operationType = Operations.DIVIDE;
-        operationTypeChecker();
+        if (actionChecker == Operations.NUMBER) {
+            gui.setVal1();
+        }
+        else if (actionChecker == Operations.EQUALS) {
+            gui.setResultToVal1();
+        }
+        gui.clear();
+        actionChecker = Operations.DIVIDE;
         lastOperationPressed = Operations.DIVIDE;
     }
 
     public void multiply(ActionEvent e) {
         operationType = Operations.MULTIPLY;
-        operationTypeChecker();
+        if (actionChecker == Operations.NUMBER) {
+            gui.setVal1();
+        }
+        else if (actionChecker == Operations.EQUALS) {
+            gui.setResultToVal1();
+        }
+        gui.clear();
+        actionChecker = Operations.MULTIPLY;
         lastOperationPressed = Operations.MULTIPLY;
     }
 
@@ -142,10 +184,14 @@ public class ButtonHandler {
                 throw new IllegalArgumentException();
 
         }
-        display();
+        displayResult();
     }
 
     public void display() {
+        ta.setText(gui.getStringBuilder().toString());
+    }
+
+    public void displayResult() {
         gui.cleanStringBuilder();
         ta.setText(gui.getStringBuilder().toString());
     }
@@ -163,17 +209,13 @@ public class ButtonHandler {
         System.out.println("Cleared everything");
     }
 
-
-
     public void operationTypeChecker() {
         if (lastOperationPressed == Operations.EQUALS) {
             System.out.println("last operation was an equal!");
             gui.setResultToVal1();
             gui.toSecondValue();
+            gui.clear();
         }
-        else {
-            gui.setVal1();
-        }
-        gui.clear();
     }
+
 }

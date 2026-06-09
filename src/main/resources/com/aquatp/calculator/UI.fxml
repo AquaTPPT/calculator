@@ -44,7 +44,7 @@
             <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="55.0" text="1/x" GridPane.columnIndex="4" GridPane.rowIndex="2" />
             <Button mnemonicParsing="false" onAction="#zero" prefHeight="45.0" prefWidth="55.0" text="0" GridPane.rowIndex="3" />
             <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="55.0" text="+/-" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="55.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#dot" prefHeight="45.0" prefWidth="55.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Button mnemonicParsing="false" onAction="#plus" prefHeight="45.0" prefWidth="55.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <Button mnemonicParsing="false" onAction="#equal" prefHeight="45.0" prefWidth="55.0" text="=" GridPane.columnIndex="4" GridPane.rowIndex="3" />
          </children>

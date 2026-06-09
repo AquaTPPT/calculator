@@ -26,12 +26,11 @@ public class GUI {
         sb.append(val);
     }
 
-    // clean the screen
-
-    public void clear() {
-        sb.delete(0,sb.length());
-        sb.append("0");
+    public void addToText(String val) {
+        sb.append(val);
     }
+
+
 
 
     //invoke operations
@@ -100,7 +99,12 @@ public class GUI {
         val1 = result;
     }
 
+    // Clear everything
+
     public void cleanStringBuilder() {
+        if (sb.toString().startsWith("0")) {
+            sb.delete(0,1);
+        }
         if (sb.toString().contains(".")) {
             String[] splitNum = sb.toString().split("[.]");
             if (Integer.parseInt(splitNum[1]) == 0) {
@@ -109,7 +113,10 @@ public class GUI {
         }
     }
 
-    // Clear everything
+    public void clear() {
+        sb.delete(0,sb.length());
+        sb.append("0");
+    }
 
     public void clean() {
         val1 = 0;
