@@ -12,7 +12,6 @@ public class GUI {
     private boolean isFirstValue = true;
     private double val1, val2, result;
 
-
     public void create() {
         calc = new Calculator();
         sb = new StringBuilder();
@@ -29,9 +28,6 @@ public class GUI {
     public void addToText(String val) {
         sb.append(val);
     }
-
-
-
 
     //invoke operations
 
@@ -67,16 +63,6 @@ public class GUI {
 
     public double convertToNumber() {
         return Double.parseDouble(sb.toString());
-    }
-
-    // value selectors
-
-    public void toFirstValue() {
-        isFirstValue = true;
-    }
-
-    public void toSecondValue() {
-        isFirstValue = false;
     }
 
     // getters and setters

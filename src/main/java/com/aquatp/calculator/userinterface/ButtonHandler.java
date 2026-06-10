@@ -91,7 +91,6 @@ public class ButtonHandler {
         lastOperationPressed = Operations.EQUALS;
         gui.setVal2();
         operation();
-        gui.toFirstValue();
         gui.clear();
         actionChecker = Operations.EQUALS;
     }
@@ -142,6 +141,10 @@ public class ButtonHandler {
         }
         else if (actionChecker == Operations.EQUALS) {
             gui.setResultToVal1();
+        }
+        else {
+            gui.setResultToVal1();
+            operation();
         }
         gui.clear();
         actionChecker = Operations.MULTIPLY;
@@ -213,7 +216,6 @@ public class ButtonHandler {
         if (lastOperationPressed == Operations.EQUALS) {
             System.out.println("last operation was an equal!");
             gui.setResultToVal1();
-            gui.toSecondValue();
             gui.clear();
         }
     }
