@@ -25,4 +25,8 @@ public class Brain {
         memory.addToOp(op);
     }
 
+    public void showOperation(int id) {
+        memory.getLastOperation();
+    }
+
 }

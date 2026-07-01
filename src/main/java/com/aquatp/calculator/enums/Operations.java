@@ -7,5 +7,6 @@ public enum Operations {
     DIVIDE,
     SQRT,
     NUMBER,
+    RECIPROCAL,
     EQUALS // will be useful to track which operation has been made
 }

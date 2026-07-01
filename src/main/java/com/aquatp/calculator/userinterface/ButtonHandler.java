@@ -4,6 +4,7 @@ import com.aquatp.calculator.enums.Operations;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class ButtonHandler {
 
@@ -12,6 +13,9 @@ public class ButtonHandler {
 
     @FXML
     private TextArea ta;
+
+    @FXML
+    private TextField tf;
 
     public ButtonHandler() {
         handler = new Handler();
@@ -141,10 +145,30 @@ public class ButtonHandler {
         setActionChecker(Operations.MULTIPLY);
     }
 
-    // this is a specific case that needs to be addressed afterward.
+    // testing needed
 
     public void sqrt(ActionEvent e) {
+        handler.addOperation(Operations.SQRT);
+        specialOpsCommonCode();
+    }
+
+    public void reciprocal() {
+        handler.addOperation(Operations.RECIPROCAL);
+        specialOpsCommonCode();
+    }
+
+    private void specialOpsCommonCode() {
+        handler.addToOperation();
+        handler.performOperation();
+        display();
         handler.clear();
+        setActionChecker(Operations.EQUALS);
+    }
+
+    // History text box
+
+    public void displayOperationinHistory() {
+        tf.setText("hahahahah");
     }
 
     public void display() {

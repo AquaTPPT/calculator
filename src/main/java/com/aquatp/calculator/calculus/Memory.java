@@ -11,8 +11,6 @@ public class Memory {
     private List<String> memory;
     private Map<Integer, Operation> ops;
 
-    // gotta change these names later on
-
     public Memory() {
         memory = new ArrayList<>();
         ops = new HashMap<>();
@@ -45,4 +43,5 @@ public class Memory {
     public Operation getLastOperation() {
         return ops.get(ops.size() - 1);
     }
+
 }

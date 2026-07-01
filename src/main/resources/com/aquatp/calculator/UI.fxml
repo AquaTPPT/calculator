@@ -47,7 +47,7 @@
                         <Button mnemonicParsing="false" onAction="#two" prefHeight="45.0" prefWidth="55.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Button mnemonicParsing="false" onAction="#three" prefHeight="45.0" prefWidth="55.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Button mnemonicParsing="false" onAction="#minus" prefHeight="45.0" prefWidth="55.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                        <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="55.0" text="1/x" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#reciprocal" prefHeight="45.0" prefWidth="55.0" text="1/x" GridPane.columnIndex="4" GridPane.rowIndex="2" />
                         <Button mnemonicParsing="false" onAction="#zero" prefHeight="45.0" prefWidth="55.0" text="0" GridPane.rowIndex="3" />
                         <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="55.0" text="+/-" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Button mnemonicParsing="false" onAction="#dot" prefHeight="45.0" prefWidth="55.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="3" />
@@ -98,7 +98,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TextField prefHeight="347.0" prefWidth="299.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <TextField fx:id="tf" editable="false" prefHeight="347.0" prefWidth="299.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
         </items>
